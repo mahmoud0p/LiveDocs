@@ -1,33 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../src/styles/dark-theme.css";
+@import "@liveblocks/react-ui/styles.css";
+@import "@liveblocks/react-lexical/styles.css";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.toolbar-item {
+     @apply text-blue-200
+}
+.text-white {
+  color :white
+}
+.cl-internal-180wb59 , .cl-internal-11ttlho{
+    display: none !important;
+
+}
+*{
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.toolbar{
+  background-color: #030712 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.flex-1 {
+  flex: 1 1 0%;
+}
+.editor-inner {
+  max-width: 100%;
+  min-height: 1100px;
+}
+.toolbar::-webkit-scrollbar{
+  height:2px;
+}
+.edit-input{
+  text-align: center;
+}
+.toolbar-item{
+  border-radius: 5px !important;
+}
+.share-container{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50% , -50%);
+    z-index: 9999;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+.loader {
+    display: flex;
+    align-items: center;
+  
   }
-}
+  
+  .bar {
+    display: inline-block;
+    width: 3px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    animation: scale-up4 1s linear infinite;
+  }
+  
+  .bar:nth-child(2) {
+    height: 40px;
+    margin: 0 5px;
+    animation-delay: .25s;
+  }
+  
+  .bar:nth-child(3) {
+    animation-delay: .5s;
+  }
+  .bg-floating{
+    background-color: #1f2937;
+  }
+  @keyframes scale-up4 {
+    20% {
+      background-color: #ffff;
+      transform: scaleY(1.5);
+    }
+  
+    40% {
+      transform: scaleY(1);
+    }
+  }
+  .floating-toolbar {
+    @apply flex w-full min-w-max items-center justify-center gap-2 rounded-lg bg-dark-350 p-1.5 shadow-xl;
+  }
+
+  .floating-toolbar-btn {
+    @apply relative inline-flex size-8 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50;
+  }
+  .comments-container {
+    @apply mb-10 space-y-4 lg:w-fit flex w-full flex-col items-center justify-center;
+  }
+
+  .comment-composer {
+    @apply w-full max-w-[800px] border border-dark-300 bg-dark-200 shadow-sm lg:w-[350px];
+  }
+
+  .comment-thread {
+    @apply w-full max-w-[800px] border border-dark-300 bg-dark-200 shadow-sm lg:w-[350px] transition-all;
+  }
+  .lb-root {
+    --lb-accent-subtle: #0b1527 !important;
+    --lb-radius: 0px !important;
+    --lb-dynamic-background: #1b2840 !important;
+  }
+  
+  .lb-comment,
+  .lb-thread-comments,
+  .lb-composer,
+  .lb-comment-reaction {
+    background-color: #0f1c34 !important;
+    color: #fff !important;
+  }
+  
+  .lb-button {
+    --lb-foreground-moderate: #fff !important;
+  }
+  
+  .lb-button:where([data-variant="primary"]) {
+    background-color: #161e30 !important;
+    color: #b4c6ee !important;
+    padding: 8px !important;
+  }
+  
+  .lb-button:where(
+      [data-variant="default"]:not(
+          :is(
+              :enabled:hover,
+              :enabled:focus-visible,
+              [aria-expanded="true"],
+              [aria-selected="true"]
+            )
+        )
+    ) {
+    color: #b4c6ee !important;
+  }
+  
+  .lb-button:where(
+      :enabled:hover,
+      :enabled:focus-visible,
+      [aria-expanded="true"],
+      [aria-selected="true"]
+    ) {
+    --lb-button-background: #161e30 !important;
+  
+    color: #b4c6ee !important;
+  }
+  
+  .lb-inbox-notification-list-item:where(:not(:last-of-type)) {
+    border-bottom: none;
+  }
+  
+  .lb-comment-body,
+  .lb-dropdown-item,
+  .lb-dropdown-item-icon,
+  .lb-composer-editor {
+    color: #fff !important;
+  }
+  
+  .lb-composer-action {
+    padding: 8px !important;
+  }
+  
+  .lb-comment-content {
+    background: #0b1527 !important;
+    margin-top: 16px !important;
+    padding: 12px !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+  }
+  
+  .lb-comment-date,
+  .lb-lexical-mention-suggestion-user,
+  .lb-composer-suggestions-list-item,
+  .lb-inbox-notification-date,
+  .lb-comment-author {
+    color: #b4c6ee !important;
+  }
+  
+  .data-liveblocks-portal {
+    color: #b4c6ee !important;
+  }
+  
+  .lb-root:where(:not(.lb-root .lb-root)) {
+    --lb-dynamic-background: #1b2840 !important;
+    color: #fff !important;
+  }
+  
+  .lb-composer-editor :where([data-placeholder]) {
+    color: #b4c6ee !important;
+    font-size: 14px !important;
+  }
+  
+  .lb-lexical-floating-threads-thread:where([data-resolved]) {
+    opacity: 40% !important;
+  }
+  
+  .lb-elevation {
+    background: #0f1c34 !important ;
+  }
+
+  .lb-emoji-picker-category-header-title{
+    color : #EEEEEEEE !important
+  }
+  ::-webkit-scrollbar{
+    background-color: transparent;
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color: rgba(110, 172, 218, 0.1);
+    border-radius: 999999px;
+  }
+
+ .cl-input{
+  @apply bg-gray-800 text-blue-100 
+ }
+ .cl-formButtonPrimary{
+  @apply  py-3  !border-none rounded-xl !shadow-none hover:bg-blue-600 !outline-offset-0 !outline-none ring-0 bg-blue-500 text-white 
+ }
+ .cl-formFieldInputShowPasswordButton{
+  @apply py-1 rounded  bg-gray-800 hover:bg-gray-900
+ }
+ .cl-buttonArrowIcon{
+  display: none;
+ }
+ .cl-socialButtonsBlockButton {
+  @apply bg-neutral-800 hover:bg-neutral-900
+ }
+ .cl-rootBox{
+  @apply !text-blue-100 
+ }
+ .cl-card {
+  @apply !text-blue-100
+ }
+ .cl-input{
+  @apply h-12
+ }
+ .cl-identityPreviewEditButton{
+  @apply px-1 py-1 rounded bg-neutral-600 hover:bg-neutral-700
+ }
+ .cl-formResendCodeLink{
+  @apply bg-transparent text-blue-500 underline hover:bg-transparent py-0
+ }
